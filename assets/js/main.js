@@ -135,9 +135,9 @@
     new Typed('.typed', {
       strings: typed_strings,
       loop: true,
-      typeSpeed: 100,
+      typeSpeed: 50,
       backSpeed: 50,
-      backDelay: 2000
+      backDelay: 1000
     });
   }
 
@@ -157,6 +157,28 @@
       }
     })
   }
+
+  let skillDisplay = select("#skills-display");
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "img/icons", true);
+  xhr.responseType = 'document';
+  xhr.onload = () => {
+    if (xhr.status === 200) {
+      var elements = xhr.response.getElementsByTagName("a");
+      for (x of elements) {
+        if ( x.href.match(/\.(jpe?g|png|gif)$/) ) {
+          let img = document.createElement("img");
+          img.src = x.href;
+          document.body.appendChild(img);
+        }
+      }
+    }
+    else {
+      alert('Request failed. Returned status of ' + xhr.status);
+    }
+  };
+  xhr.send();
+
 
   /**
    * Porfolio isotope and filter
