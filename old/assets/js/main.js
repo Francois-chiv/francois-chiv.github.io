@@ -253,4 +253,18 @@
     })
   });
 
+  const birthday = document.getElementById('birthday');
+  let age = document.getElementById('age');
+  var dob = new Date(Date.parse(birthday.innerHTML, 'dd MMMM yyyy'));
+  const dateNow = new Date();
+  var ageDt = dateNow.getFullYear()-dob.getFullYear();
+
+  var monthDiff = dateNow.getMonth() - dob.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && dateNow.getDate() < dob.getDate())) {
+    ageDt--;
+  }
+
+  age.innerHTML = ageDt;
+//  age.innerHTML = birt
+
 })()
