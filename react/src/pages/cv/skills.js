@@ -1,7 +1,7 @@
 import { Badge, Form } from "react-bootstrap";
 import { useState } from "react";
 
-export default function Cover() {
+export default function Skills() {
   const [query, setQuery] = useState('');
 
   const handleQueryChange = (event) => {

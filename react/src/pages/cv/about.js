@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function Cover() {
+export default function About() {
   const [age, setAge] = useState('');
   const birthday = "7 Octobre 1999"
 

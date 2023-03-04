@@ -1,6 +1,6 @@
 import CountUp from 'react-countup';
 
-export default function Cover() {
+export default function Facts() {
   return (
     <>
       <section id="facts" className="facts">

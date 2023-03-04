@@ -15,6 +15,7 @@ asset-manifest.json
 index.html
 manifest.json
 robots.txt
+/react/build
 
 # misc
 .DS_Store

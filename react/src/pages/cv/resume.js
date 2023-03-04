@@ -14,11 +14,11 @@ export default function Resume() {
 
           <div className="row">
             <div className="col-lg-6" data-aos="fade-right">
-              <Element data={resume} />
-              <Element data={education} />
+              <Element data={resume} key="1"/>
+              <Element data={education} key="2"/>
             </div>
             <div className="col-lg-6" data-aos="fade-left" data-aos-delay="100">
-              <Element data={experience} />
+              <Element data={experience} key="3"/>
             </div>
           </div>
 
@@ -31,9 +31,9 @@ export default function Resume() {
 function Element({ data }) {
   return (
     <>
-      <h3 className="resume-title" key={data.id}>{data.title}</h3>
+      <h3 className="resume-title">{data.title}</h3>
        {data.Content.map((item) => (
-        <div className="resume-item" key={item.id}>
+        <div className="resume-item">
           <h4>{item.title}</h4>
           {item.period && <h5>{item.period}</h5>}
           {item.address && <p><em>{item.address}</em></p>}
