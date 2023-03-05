@@ -7,6 +7,7 @@ import Portfolio from "./pages/cv/portfolio";
 import Skills from "./pages/cv/skills";
 // import Footer from "./pages/cv/footer";
 import Projet1 from "./pages/projets/projet1";
+import Blog from "./pages/blog/blog";
 import "./index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Aos from "aos";
@@ -47,8 +48,8 @@ function App() {
                 </div>
               </div>
             } />
-
             <Route path="/projet1" element={<Projet1 />} />
+            <Route path="/blog" element={<Blog />} />
           </Routes>
       </BrowserRouter>
     </>

@@ -1,7 +1,10 @@
 .article-container {
-  width: 70% !important;
-  max-width: 70% !important;
-  padding: 5% !important;
+  width: 900px !important;
+  max-width: 900px !important;
+  padding-left: 5% !important;
+  padding-right: 5% !important;
+  padding-top: 2%;
+  padding-bottom: 1%;
   background-color: white;
 }
 

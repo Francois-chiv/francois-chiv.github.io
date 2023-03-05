@@ -23,7 +23,7 @@ export default function Skills() {
           </div>
 
           <Form.Control type="text" className="m-2" value={query} onChange={handleQueryChange} placeholder="Filtrer sur les compétences" />
-          <div className="row skills-content">
+          <div className="row skills-content" data-aos="fade-right">
             {filteredCompetences.map((data) => (
               <Competence data={data} />
             ))}

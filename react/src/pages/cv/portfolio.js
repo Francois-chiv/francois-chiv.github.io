@@ -32,12 +32,12 @@ export default function Portfolio() {
             </div>
           </div>
 
-          <div className="row portfolio-container" data-aos="fade-up">
+          <div className="row portfolio-container" data-aos="zoom-out">
             {projets.map((projet, index) => (
               <Element
                 key={index}
                 data={projet}
-                show={projet.filter === filter || filter === "*" ? "show" : "d-none"}
+                show={projet.filter === filter || filter === "*" ? "show" : ""}
               />
             ))}
           </div>

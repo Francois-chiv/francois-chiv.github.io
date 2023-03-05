@@ -28,7 +28,7 @@ export default function Facts() {
                 <i className="bi bi-journal-richtext"></i>
                 <CountUp end={20} duration={1} enableScrollSpy />
                 <p><strong>Projects : </strong>professionels et académiques</p>
-                <p><a href="#facts">TODO : En savoir plus</a></p>
+                <p><a href="#portfolio">TODO : En savoir plus</a></p>
               </div>
             </div>
           </div>

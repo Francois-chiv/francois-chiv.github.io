@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Nav } from 'react-bootstrap';
-import { HiX, HiMenu, HiOutlineHome, HiOutlineUser, HiOutlineAcademicCap, HiOutlineViewGrid, HiOutlineMail, HiOutlineCheckCircle } from "react-icons/hi";
+import { HiOutlineChatAlt, HiX, HiMenu, HiOutlineHome, HiOutlineUser, HiOutlineAcademicCap, HiOutlineViewGrid, HiOutlineMail, HiOutlineCheckCircle } from "react-icons/hi";
 
 export default function Sidebar() {
   const [mobileNavActive, setMobileNavActive] = useState(false);
-  const [sidebarActive, setSidebarActive] = useState(true);
 
   useEffect(() => {
     const body = document.querySelector('body');
@@ -17,7 +16,6 @@ export default function Sidebar() {
 
   function handleClick() {
     setMobileNavActive(!mobileNavActive);
-    setSidebarActive(!sidebarActive)
   }
 
   return (
@@ -26,12 +24,12 @@ export default function Sidebar() {
         {mobileNavActive ? <HiX /> : <HiMenu />}
       </button>
 
-      {sidebarActive ? <header id="header">
+      <header id="header">
         <div className="d-flex flex-column">
 
           <div className="profile">
             <img src="img/profile_img.jpg" alt="" className="img-fluid rounded-circle" />
-            <h1 className="text-light"><a href="index.html">François CHIV</a></h1>
+            <h1 className="text-light">François CHIV</h1>
             <div className="social-links mt-3 text-center">
               <a href="https://www.instagram.com/kya_sama/" className="instagram"><img src="img/icons/instagram.png" alt="" className="img-fluid rounded-circle" /></a>
               <a href="https://www.linkedin.com/in/fran%C3%A7ois-chiv-982737182/" className="linkedin"><img src="img/icons/linkedin.png" alt="" className="img-fluid rounded-circle" />
@@ -66,11 +64,16 @@ export default function Sidebar() {
                   <HiOutlineMail />
                   <span>Contact</span>
                 </Nav.Link>
+                <Nav.Link href="blog" className='nav-link'>
+                  <HiOutlineChatAlt />
+                  <span>Blog</span>
+                </Nav.Link>
               </ul>
             </Nav>
           </nav>
         </div>
-      </header> : ""}
+        </header>
+      
     </>
   );
 }

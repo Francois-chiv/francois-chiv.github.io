@@ -4,7 +4,6 @@ import './article.css';
 
 export default function ArticleTemplate(props) {
   const { data } = props;
-
   const redirect = () => {
     window.location.href = "/#portfolio";
   };
@@ -26,19 +25,36 @@ export default function ArticleTemplate(props) {
                 ))}
               </div>
               <br />
-              <h3>Concept</h3>
-              <p className="blog-meta">
-                {data.concept}
-              </p>
-              {props.children}
             </div>
           </Col>
           <Col xs lg="2">
-            Image
+            {data.imgPath && <img src={data.imgPath} height="80%"/>}
           </Col>
+          <Section contents={data.contents} />
         </Row>
+        {props.children}
       </Container>
     </>
+  );
+}
 
+
+function Section({ contents }) {
+  return (
+    <>
+      {contents.map((paragraph, index) => (
+        <Row key={index}>
+          <Col className="article-container">
+            <h3>{paragraph.title}</h3>
+            <p className="blog-meta">
+              {paragraph.text}
+            </p>
+          </Col>
+          <Col xs lg="2">
+            {paragraph.imgPath && <img src={paragraph.imgPath} max-height="80%"/>}
+          </Col>
+        </Row>
+      ))}
+    </>
   );
 }
