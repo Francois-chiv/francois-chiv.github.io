@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { HiOutlineChatAlt, HiX, HiMenu, HiOutlineHome, HiOutlineUser, HiOutlineAcademicCap, HiOutlineViewGrid, HiOutlineMail, HiOutlineCheckCircle } from "react-icons/hi";
 
 export default function Sidebar() {
@@ -60,14 +61,14 @@ export default function Sidebar() {
                   <HiOutlineCheckCircle />
                   <span>Compétences</span>
                 </Nav.Link>
-                <Nav.Link href="#contact" className='nav-link'>
+                <Link to="#contact" className='nav-link'>
                   <HiOutlineMail />
                   <span>Contact</span>
-                </Nav.Link>
-                <Nav.Link href="blog" className='nav-link'>
+                </Link>
+                <Link to="blog" className='nav-link'>
                   <HiOutlineChatAlt />
                   <span>Blog</span>
-                </Nav.Link>
+                </Link>
               </ul>
             </Nav>
           </nav>

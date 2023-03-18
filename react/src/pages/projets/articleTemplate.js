@@ -28,7 +28,7 @@ export default function ArticleTemplate(props) {
             </div>
           </Col>
           <Col xs lg="2">
-            {data.imgPath && <img src={data.imgPath} height="80%"/>}
+            {data.imgPath && <img src={data.imgPath} height="80%" alt="#"/>}
           </Col>
           <Section contents={data.contents} />
         </Row>
@@ -51,7 +51,7 @@ function Section({ contents }) {
             </p>
           </Col>
           <Col xs lg="2">
-            {paragraph.imgPath && <img src={paragraph.imgPath} max-height="80%"/>}
+            {paragraph.imgPath && <img src={paragraph.imgPath} max-height="80%" alt = "#"/>}
           </Col>
         </Row>
       ))}
