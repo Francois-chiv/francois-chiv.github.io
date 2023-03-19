@@ -75,10 +75,6 @@ export default function Portfolio() {
 }
 
 function Element({ data, show }) {
-  const redirect = () => {
-    window.location.href = data.link;
-  };
-
   return (
     <div className={`col-lg-4 col-md-6 portfolio-item ${data.filter} ${show}`}>
       <div className="portfolio-wrap">
