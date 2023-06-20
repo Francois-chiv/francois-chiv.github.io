@@ -49,6 +49,12 @@ function Section({ contents }) {
             <p className="blog-meta">
               {paragraph.text}
             </p>
+            <ul>
+            {paragraph.bulletList && paragraph.bulletList.map(element => (
+              <li key={element}>{element}</li>
+            ))}
+          </ul>
+
           </Col>
           <Col xs lg="2">
             {paragraph.imgPath && <img src={paragraph.imgPath} max-height="80%" alt = "#"/>}

@@ -6,7 +6,9 @@ import Resume from "./pages/cv/resume";
 import Portfolio from "./pages/cv/portfolio";
 import Skills from "./pages/cv/skills";
 // import Footer from "./pages/cv/footer";
-import Projet1 from "./pages/projets/projet1";
+import RobotTurtle from "./pages/projets/RobotTurtle";
+import HomeChef from "./pages/projets/HomeChef"
+import Jarvis from "./pages/projets/Jarvis";
 import Blog from "./pages/blog/blog";
 import "./index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -48,7 +50,9 @@ function App() {
                 </div>
               </div>
             } />
-            <Route path="/projet1" element={<Projet1 />} />
+            <Route path="/RobotTurtle" element={<RobotTurtle />} />
+            <Route path="/Jarvis" element={<Jarvis />} />
+            <Route path="/HomeChef" element={<HomeChef />} />
             <Route path="/blog" element={<Blog />} />
           </Routes>
       </BrowserRouter>

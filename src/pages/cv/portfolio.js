@@ -102,15 +102,22 @@ const projets = [
     description: [
       "Projet académique en Java, création d'un plateau de jeu vidéo",
     ],
-    imgPath: ["img/portfolio/portfolio-1.jpg", "img/portfolio/portfolio-1.jpg"],
+    imgPath: ["img/projects/robot_turtle_1.jpg"],
     filter: ".filter-app",
-    link: "projet1",
+    link: "RobotTurtle",
   },
   {
-    title: "projet2",
+    title: "Jarvis",
     description: "description",
     imgPath: ["img/portfolio/portfolio-1.jpg"],
     filter: ".filter-app",
-    link: "google.com",
+    link: "Jarvis",
+  },
+  {
+    title: "HomeChef",
+    description: "description",
+    imgPath: ["img/portfolio/portfolio-1.jpg"],
+    filter: ".filter-app",
+    link: "HomeChef",
   },
 ];
