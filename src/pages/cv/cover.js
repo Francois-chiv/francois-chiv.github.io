@@ -1,6 +1,8 @@
 import Typed from 'react-typed/dist/react-typed';
 
 export default function Cover() {
+
+
   return (
     <>
       <section id="hero" className="d-flex flex-column justify-content-center align-items-center">

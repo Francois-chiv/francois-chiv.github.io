@@ -10,6 +10,7 @@ import RobotTurtle from "./pages/projets/RobotTurtle";
 import HomeChef from "./pages/projets/HomeChef"
 import Jarvis from "./pages/projets/Jarvis";
 import Blog from "./pages/blog/blog";
+import AdminDashboard from "./pages/admin/adminDashboard";
 import "./index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Aos from "aos";
@@ -54,6 +55,7 @@ function App() {
             <Route path="/Jarvis" element={<Jarvis />} />
             <Route path="/HomeChef" element={<HomeChef />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/admin" element={<AdminDashboard />} />
           </Routes>
       </BrowserRouter>
     </>
