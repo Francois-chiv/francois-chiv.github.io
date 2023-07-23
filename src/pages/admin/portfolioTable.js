@@ -23,32 +23,23 @@ const PortfolioTable = () => {
     }
   };
 
-  const postData = (data) => {
-    const formattedData = {
-      TITLE: data[0].TITLE,
-      IMAGE: data[0].IMAGE,
-      DESCRIPTION: data[0].DESCRIPTION,
-      CATEGORY: data[0].CATEGORY,
-    };
-    
-    portfolioAPI.create(formattedData)
-      .then(() => {
-        setData(data);
-      })
-      .catch((error) => {
-        console.error('Error updating user data:', error);
-      });
+  const postData = async(data) => {
+    const res = await portfolioAPI.create(data)
+    setData(data);
+    return res;
   };
 
-  const updateData = (id, data) => {
+  const updateData = (data) => {
     const formattedData = {
-      TITLE: data[0].TITLE,
-      IMAGE: data[0].IMAGE,
-      DESCRIPTION: data[0].DESCRIPTION,
-      CATEGORY: data[0].CATEGORY,
+      TITLE: data.TITLE,
+      IMAGE: data.IMAGE,
+      DESCRIPTION: data.DESCRIPTION,
+      CATEGORY: data.CATEGORY,
     };
 
-    portfolioAPI.update(id, formattedData)
+    console.log(formattedData);
+    const PK_ID = data.PK_ID;
+    portfolioAPI.update(PK_ID, formattedData)
   }
 
   const deleteData = (id) => {

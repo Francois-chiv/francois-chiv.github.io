@@ -35,8 +35,6 @@ const UserTable = () => {
       BIRTHDAY: data[0].BIRTHDAY,
       PROFILE_IMAGE: data[0].PROFILE_IMAGE
     };
-
-    console.log(formattedData);
     
     userAPI.updateUser(formattedData)
       .then((response) => {

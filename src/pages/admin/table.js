@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Table = ({ add, data, modify, remove }) => {
   const [newData, setNewData] = useState(data);
 
   const handleChange = (event, id) => {
     const updatedData = newData.map((row) => {
-      if (row.id === id) {
+      if (row.PK_ID === id) {
         return { ...row, [event.target.name]: event.target.value };
       }
       return row;
@@ -13,19 +13,31 @@ const Table = ({ add, data, modify, remove }) => {
     setNewData(updatedData);
   };
 
-  const handleAddRow = () => {
-    // Create a new empty row with unique ID (You can change how you generate IDs if needed)
-    const newRow = { id: Date.now(), name: '', age: '', email: '' };
-    setNewData([...newData, newRow]);
+  const handleAddRow =  async() => {
+    const newRow = {};
+
+    Object.keys(newData[0]).map((key) => {
+      newRow[key] = '';
+    });
+
+    try{
+      const response = await add(newRow);
+      newRow.PK_ID = response.data.PK_ID;
+      setNewData(oldArray => [...oldArray, newRow]);
+    } catch(error) {
+      console.error("Error while adding the row:", error);
+    }
   };
 
   const handleRemoveRow = (id) => {
-    const updatedData = newData.filter((row) => row.id !== id);
+    const updatedData = newData.filter((row) => row.PK_ID !== id);
+    remove(id)
     setNewData(updatedData);
   };
 
-  const handleSubmit = () => {
-    modify(newData);
+  const handleModify = (id) => {
+    const modifiedData = newData.filter((row) => row.PK_ID === id);
+    modify(modifiedData[0]);
   };
 
   return (
@@ -33,7 +45,7 @@ const Table = ({ add, data, modify, remove }) => {
       <table style={{ border: '1px solid black' }}>
         <thead>
           <tr>
-            {Object.keys(data[0]).map((key, index) => (
+            {Object.keys(newData[0]).map((key, index) => (
               <th key={index} style={{ border: '1px solid black', padding: '5px' }}>
                 {key}
               </th>
@@ -42,7 +54,7 @@ const Table = ({ add, data, modify, remove }) => {
           </tr>
         </thead>
         <tbody>
-          {newData.map((row, index) => (
+          {newData && newData.map((row, index) => (
             <tr key={index}>
               {Object.keys(row).map((key, index) => (
                 <td key={index} style={{ border: '1px solid black', padding: '5px' }}>
@@ -50,13 +62,13 @@ const Table = ({ add, data, modify, remove }) => {
                     type="text"
                     name={key}
                     value={row[key] || ''}
-                    onChange={(event) => handleChange(event, row.id)}
+                    onChange={(event) => handleChange(event, row.PK_ID)}
                   />
                 </td>
               ))}
               <td style={{ border: '1px solid black', padding: '5px' }}>
-                {remove && <button onClick={() => handleRemoveRow(row.id)}>Remove</button>}
-                <button onClick={() => handleSubmit(row.id)}>Modify</button>
+                {remove && index !== 0 && <button onClick={() => handleRemoveRow(row.PK_ID)}>Remove</button>}
+                {modify && <button onClick={() => handleModify(row.PK_ID)}>Modify</button>}
               </td>
             </tr>
           ))}
