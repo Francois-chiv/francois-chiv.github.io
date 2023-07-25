@@ -1,5 +1,5 @@
 import Typed from 'react-typed/dist/react-typed';
-import welcomeApi from '../../services/welcomeAPI';
+import welcomeApi from '../services/welcomeAPI';
 import React, { useState, useEffect } from 'react';
 
 export default function Cover() {
@@ -13,7 +13,6 @@ export default function Cover() {
     try {
       const response = await welcomeApi.getData();
       setData(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error('Error fetching user data:', error);
     }

@@ -1,10 +1,10 @@
-import Sidebar from "./pages/cv/sidebar";
-import Cover from "./pages/cv/cover";
-import About from "./pages/cv/about";
-import Facts from "./pages/cv/facts";
-import Resume from "./pages/cv/resume";
-import Portfolio from "./pages/cv/portfolio";
-import Skills from "./pages/cv/skills";
+import Sidebar from "./pages/sidebar";
+import Cover from "./pages/cover";
+import About from "./pages/about";
+import Facts from "./pages/facts";
+import Resume from "./pages/resume";
+import Portfolio from "./pages/portfolio";
+import Skills from "./pages/skills";
 // import Footer from "./pages/cv/footer";
 import RobotTurtle from "./pages/projets/RobotTurtle";
 import HomeChef from "./pages/projets/HomeChef"

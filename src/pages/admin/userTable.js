@@ -25,15 +25,15 @@ const UserTable = () => {
 
   const postUserData = (data) => {
     const formattedData = {
-      FIRSTNAME: data[0].FIRSTNAME,
-      LASTNAME: data[0].LASTNAME,
-      EMAIL: data[0].EMAIL,
-      DEGREE: data[0].DEGREE,
-      ADDRESS: data[0].ADDRESS,
-      PHONE_NUMBER: data[0].PHONE_NUMBER,
-      AVAILABILITY: data[0].AVAILABILITY,
-      BIRTHDAY: data[0].BIRTHDAY,
-      PROFILE_IMAGE: data[0].PROFILE_IMAGE
+      FIRSTNAME: data.FIRSTNAME,
+      LASTNAME: data.LASTNAME,
+      EMAIL: data.EMAIL,
+      DEGREE: data.DEGREE,
+      ADDRESS: data.ADDRESS,
+      PHONE_NUMBER: data.PHONE_NUMBER,
+      AVAILABILITY: data.AVAILABILITY,
+      BIRTHDAY: data.BIRTHDAY,
+      PROFILE_IMAGE: data.PROFILE_IMAGE
     };
     
     userAPI.updateUser(formattedData)

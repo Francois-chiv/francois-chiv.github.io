@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_API_URL + 'portfolio/';
+const BASE_URL = process.env.REACT_APP_API_URL + 'cvBulletPoint/';
 
-class PortfolioService {
+class CvBulletPointService {
     create(data) {
         return axios.post(BASE_URL, data);
     }
@@ -20,6 +20,6 @@ class PortfolioService {
     }
 }
 
-var instance = new PortfolioService();
+var instance = new CvBulletPointService();
 
 export default instance;

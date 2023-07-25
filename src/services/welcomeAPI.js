@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3001/welcome/';
+const BASE_URL = process.env.REACT_APP_API_URL + 'welcome/';
 
 class WelcomeService {
   getData() {
@@ -8,4 +8,6 @@ class WelcomeService {
   }
 }
 
-export default new WelcomeService();
+var instance = new WelcomeService();
+
+export default instance;

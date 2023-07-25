@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
+import userAPI from '../services/userAPI';
 
 export default function About() {
+  const [data, setData] = useState([]);
   const [age, setAge] = useState('');
-  const birthday = "7 Octobre 1999"
 
   useEffect(() => {
-    const dob = new Date(Date.parse(birthday, 'dd MMMM yyyy'));
+    getData();
+
+    const dob = new Date(Date.parse(data.BIRTHDAY, 'dd/MM/yyyy'));
     const dateNow = new Date();
     let ageDt = dateNow.getFullYear() - dob.getFullYear();
 
@@ -15,8 +18,16 @@ export default function About() {
     }
 
     setAge(ageDt);
-    
-  }, [age]);
+  }, []);
+
+  const getData = async () => {
+    try {
+      const response = await userAPI.get();
+      setData(response.data[0]);
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  };
 
   return (
     <>
@@ -48,29 +59,28 @@ export default function About() {
                 <div className="col-lg-6">
                   <ul>
                     <li><i className="bi bi-chevron-right"></i> <strong>Date de naissance :</strong>
-                      <span id="birthday">{birthday}</span>
+                      <span id="birthday">{data.BIRTHDAY}</span>
                     </li>
                     <li><i className="bi bi-chevron-right"></i> <strong>Site web :</strong>
                       <a href="https://francois-chiv.github.io">Site github</a>
                     </li>
                     <li><i className="bi bi-chevron-right"></i> <strong>Numéro de téléphone :</strong>
-                      <span>+33 6 21 87 96 80</span>
+                      <span>{data.PHONE_NUMBER}</span>
                     </li>
                     <li><i className="bi bi-chevron-right"></i> <strong>Ville :</strong>
-                      <span>Paris, France</span>
+                      <span>{data.ADDRESS}</span>
                     </li>
                   </ul>
                 </div>
                 <div className="col-lg-6">
                   <ul>
                     <li><i className="bi bi-chevron-right"></i> <strong>Age :</strong> <span id="age">{age}</span></li>
-                    <li><i className="bi bi-chevron-right"></i> <strong>Diplôme :</strong> <span>Master en ingénieur
-                      logiciel</span>
+                    <li><i className="bi bi-chevron-right"></i> <strong>Diplôme :</strong> <span>{data.DEGREE}</span>
                     </li>
-                    <li><i className="bi bi-chevron-right"></i> <strong>Email :</strong> <span>francois.chiv@gmail.com</span>
+                    <li><i className="bi bi-chevron-right"></i> <strong>Email :</strong> <span>{data.EMAIL}</span>
                     </li>
                     <li><i className="bi bi-chevron-right"></i> <strong>Disponnibilité :</strong>
-                      <span>Available</span>
+                      <span>{data.AVAILABILITY}</span>
                     </li>
                   </ul>
                 </div>

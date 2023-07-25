@@ -1,15 +1,17 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3001/user/';
+const BASE_URL = process.env.REACT_APP_API_URL + 'user/';
 
 class UserService {
-  getUser() {
+  get() {
     return axios.get(BASE_URL);
   }
 
-  updateUser(userData) {
+  update(userData) {
     return axios.post(BASE_URL, userData);
   }
 }
 
-export default new UserService();
+var instance = new UserService();
+
+export default instance;
